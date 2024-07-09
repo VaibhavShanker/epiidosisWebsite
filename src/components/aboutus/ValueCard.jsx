@@ -1,10 +1,21 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const ValueCard = ({ title, description }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="bg-[#E8F6FF] p-6 rounded-lg shadow-md" style={{ width: '500x', height: '330px', color: '#5F5D5E' }}>
+    <div
+      className={`bg-[#E8F6FF] p-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105`}
+      style={{ width: '450px', height: '330px', color: '#5F5D5E', position: 'relative' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-sm">{description}</p>
+      {isHovered && (
+        <div className="absolute inset-0 bg-transparent"></div>
+      )}
     </div>
   );
 };

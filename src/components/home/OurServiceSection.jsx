@@ -3,7 +3,7 @@ import fundingSolution from "/img/home/19198424SX[1] 1.png";
 const OurServiceSection = () => {
   return (
     
-      <div className="container sm:mt-[80rem] md:mt-[35rem] lg:mt-[15rem] 2xl:mt-[16rem] mb-0 mx-auto flex flex-col items-center justify-center">
+      <div className="container sm:mt-[80rem] md:mt-[35rem] lg:mt-[15rem] 2xl:mt-[5rem] mb-0 mx-auto flex flex-col items-center justify-center ">
         <div className="flex w-full h-full">
           <div className="left-div" style={{ width: '50%', height: '100%' }}>
             <img src={fundingSolution} alt="Funding Solution" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />

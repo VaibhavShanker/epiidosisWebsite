@@ -26,6 +26,10 @@ const navListMenuItems = [
     link: "/fundraising",
   },
   {
+    title: "Invest with Us", // Added "Invest with Us" button
+    link: "/invest",
+  },
+  {
     title: "Asset Monetization",
     link: "/assetmonetization",
   },
@@ -59,8 +63,12 @@ const otherPagesMenuItems = [
 ];
 
 function NavListMenu() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isFundraisingOpen, setIsFundraisingOpen] = React.useState(false);
+
+  const toggleFundraisingMenu = () => {
+    setIsFundraisingOpen(!isFundraisingOpen);
+  };
+
   const renderItems = navListMenuItems.map(({ title, link }, key) => (
     <Link to={link} key={key}>
       <MenuItem className="flex items-center gap-3 rounded-lg">
@@ -80,51 +88,46 @@ function NavListMenu() {
   return (
     <React.Fragment>
       <Menu
-        open={isMenuOpen}
-        handler={setIsMenuOpen}
+        open={isFundraisingOpen}
+        handler={setIsFundraisingOpen}
         offset={{ mainAxis: 20 }}
-        placement="bottom"
+        placement="bottom-start" // Adjust placement here
         allowHover={true}
       >
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
               className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              selected={isFundraisingOpen}
+              onClick={toggleFundraisingMenu}
             >
               Funding Solutions
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
-              />
-              <ChevronDownIcon
-                strokeWidth={2.5}
-                className={`block h-3 w-3 transition-transform lg:hidden ${
-                  isMobileMenuOpen ? "rotate-180" : ""
+                  isFundraisingOpen ? "rotate-180" : ""
                 }`}
               />
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
-          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+        <MenuList className={`absolute bg-white shadow-lg mt-1 w-full lg:w-auto lg:block`} style={{ borderRadius: '8px' }}>
+          <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0 p-4">
             {renderItems}
           </ul>
         </MenuList>
       </Menu>
-      <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
-      </div>
     </React.Fragment>
   );
 }
 
 function OtherPagesMenu() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = React.useState(false);
+
+  const toggleResourcesMenu = () => {
+    setIsResourcesOpen(!isResourcesOpen);
+  };
+
   const renderItems = otherPagesMenuItems.map(({ title, link }, key) => (
     <Link to={link} key={key}>
       <MenuItem className="flex items-center gap-3 rounded-lg">
@@ -144,44 +147,35 @@ function OtherPagesMenu() {
   return (
     <React.Fragment>
       <Menu
-        open={isMenuOpen}
-        handler={setIsMenuOpen}
+        open={isResourcesOpen}
+        handler={setIsResourcesOpen}
         offset={{ mainAxis: 20 }}
-        placement="bottom"
+        placement="bottom-start" // Adjust placement here
         allowHover={true}
       >
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
               className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              selected={isResourcesOpen}
+              onClick={toggleResourcesMenu}
             >
               Resources
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`hidden h-3 w-3 transition-transform lg:block ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
-              />
-              <ChevronDownIcon
-                strokeWidth={2.5}
-                className={`block h-3 w-3 transition-transform lg:hidden ${
-                  isMobileMenuOpen ? "rotate-180" : ""
+                  isResourcesOpen ? "rotate-180" : ""
                 }`}
               />
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
-          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+        <MenuList className={`absolute bg-white shadow-lg mt-1 w-full lg:w-auto lg:block`} style={{ borderRadius: '8px' }}>
+          <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0 p-4">
             {renderItems}
           </ul>
         </MenuList>
       </Menu>
-      <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
-      </div>
     </React.Fragment>
   );
 }
@@ -197,6 +191,11 @@ function NavList() {
       <Link to={"/aboutus"}>
         <Typography variant="small" color="blue-gray" className="font-medium">
           <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
+        </Typography>
+      </Link>
+      <Link to={"/invest"}>
+        <Typography variant="small" color="blue-gray" className="font-medium">
+          <ListItem className="flex items-center gap-2 py-2 pr-4">Invest with Us</ListItem>
         </Typography>
       </Link>
       <NavListMenu />
@@ -230,7 +229,7 @@ export function StickyNavbar({ color }) {
           <Link to={"/Login"}>
             <Button
               size="sm"
-              className="rounded-none"
+              className="rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
               style={{
                 background: "white",
                 color: "blue",
@@ -244,7 +243,7 @@ export function StickyNavbar({ color }) {
           <Link to={"/SignUp"}>
             <Button
               size="sm"
-              className="rounded-none"
+              className="rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
               style={{
                 background:
                   "linear-gradient(104.32deg, #339FDE 3.51%, #1C5678 90.88%)",
@@ -276,7 +275,7 @@ export function StickyNavbar({ color }) {
           <Link to={"/SignUp"}>
             <Button
               size="sm"
-              className="rounded-none"
+              className="rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
               style={{
                 background: "white",
                 color: "blue",
@@ -290,7 +289,7 @@ export function StickyNavbar({ color }) {
           <Link to={"/SignUp"}>
             <Button
               size="sm"
-              className="rounded-none"
+              className="rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
               style={{
                 background:
                   "linear-gradient(104.32deg, #339FDE 3.51%, #1C5678 90.88%)",

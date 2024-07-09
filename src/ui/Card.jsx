@@ -1,4 +1,3 @@
-// Card.js
 import PropTypes from 'prop-types';
 
 function Card({ imageSrc, altText, title }) {
@@ -32,22 +31,24 @@ function Card({ imageSrc, altText, title }) {
 
   return (
     <div
-      className="relative md:max-w-[25rem] md:w-[-5%] md:justify-center overflow-hidden border shadow-2xl bg-white z-10 flex flex-col justify-end"
-      style={{ width: "400px", height: "400px" }} // Adjust this size as needed
+      className="relative flex flex-col items-center overflow-hidden border shadow-2xl bg-white z-10 transition-transform transform hover:scale-105 hover:shadow-xl"
+      style={{ width: "320px", height: "400px" }}
     >
       <div
-        className="h-24 w-24 bg-gradient-to-br from-[#1FA0EB] to-[#125B85] rounded-full absolute top-[30px] left-1/2 transform -translate-x-1/2 flex items-center justify-center"
-        style={{ padding: '8px' }} // Increase or decrease padding as needed
+        className="h-24 w-24 bg-gradient-to-br from-[#1FA0EB] to-[#125B85] rounded-full absolute top-[20px] left-1/2 transform -translate-x-1/2 flex items-center justify-center"
+        style={{ marginTop: '2rem' }}
       >
-        <img src={imageSrc} alt={altText} className="h-36 w-36 object-cover rounded-full" /> {/* Adjust height and width */}
+        <img src={imageSrc} alt={altText} className="h-36 w-36 object-cover rounded-full" />
       </div>
-      <p
-        className="text-blue-500 text-center mt-20 -mb-1 text-lg"
-        style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
-      >
-        {title}
-      </p>
-      <p className="text-gray-700 text-center mt-5">{content}</p>
+      <div className="flex flex-col items-center mt-40 text-center px-4">
+        <p
+          className="text-blue-500 text-lg"
+          style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+        >
+          {title}
+        </p>
+        <p className="text-gray-700 text-sm mt-3 mx-4">{content}</p> {/* Reduced font size with text-sm */}
+      </div>
     </div>
   );
 }

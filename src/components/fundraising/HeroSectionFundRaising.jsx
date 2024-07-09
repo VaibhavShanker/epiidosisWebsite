@@ -52,18 +52,18 @@ const HeroSectionFundRaising = () => {
             <BreadcrumbsDefault data={breadcrumbs} />
             <div className="ml-12">
               <p className="text-white mt-5 text-xl md:text-start md:text-4xl font-inria">
-                Empower Your Vision with Epiidosis Investments
+                Empower Your Vision with Epiidosis Investments <br></br>
               </p>
               <p className="text-white mt-1 text-xl md:text-start md:text-4xl font-inria">
-                Epiidosis Investments
+                Epiidosis Investments<br></br>
               </p>
               <p className="md:w-[56%] md:text-lg text-gray-400 mt-1 font-inter">
-                Unlock Funding Opportunities for Your Project
+                <br></br>Unlock Funding Opportunities for Your Project
               </p>
               <p className="md:w-[56%] md:text-lg text-gray-400 mt-2 font-inter">
                 Join Epiidosis Investments and embark on a transformative journey to bring
               </p>
-              <div className="w-fit mt-2">
+              <div className="w-fit mt-8">
                 <ButtonPrimaryUi>
                   <span className="flex items-center gap-2 font-inria">
                     Get Started
@@ -84,9 +84,9 @@ const HeroSectionFundRaising = () => {
                   </span>
                 </ButtonPrimaryUi>
               </div>
-              <p className="md:w-[70%] md:text-sm text-gray-400 mt-5 font-inter">
-                Join Epiidosis Investments and embark on a transformative journey to bring your projects to life. 
-                Our comprehensive funding process streamlines every step, ensuring transparency, efficiency, and support at every turn.
+              <p className="md:w-[70%] md:text-sm text-gray-400 mt-6 font-inter">
+                <br></br>Join Epiidosis Investments and embark on a transformative<br></br> journey to bring your projects to life.<br></br> 
+                Our comprehensive funding process streamlines every<br></br> step, ensuring transparency, efficiency, and support at every turn.
               </p>
             </div>
           </div>

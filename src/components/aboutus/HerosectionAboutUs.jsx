@@ -28,7 +28,7 @@ function Herosection() {
   ];
 
   return (
-    <div className="relative w-full max-h-auto sm:min-h-[55rem] 2xl:min-h-[55rem]">
+    <div className="relative w-full max-h-auto sm:min-h-[55rem] 2xl:min-h-[48rem]">
       <div className="relative bg-gradient-to-tr from-gray-900 to-blue-gray-600 h-full w-full">
         <img
           alt="img"

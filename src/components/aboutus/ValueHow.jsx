@@ -26,13 +26,13 @@ const valueData = [
 const ValueHow = () => {
   return (
     <div className="w-full p-8">
-      <h2 className="text-center text-3xl font-bold mb-8 " style={{ color: '#5F5D5E' }}>How We Add Value</h2>
+      <h2 className="text-center text-3xl font-bold mb-8 text-[#5F5D5E]">How We Add Value</h2>
       <div className="flex justify-between">
         <div className="flex flex-col space-y-4 p-2">
           <ValueCard title={valueData[0].title} description={valueData[0].description} />
           <ValueCard title={valueData[1].title} description={valueData[1].description} />
         </div>
-        <div className="mt-20 p-2">
+        <div className="mt-40 p-2"> {/* Adjusted top margin for centering */}
           <ValueCard title={valueData[2].title} description={valueData[2].description} />
         </div>
         <div className="flex flex-col space-y-4 p-2">

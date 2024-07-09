@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const FounderCard = ({ image, name, title, description }) => {
   return (
     <div className="bg-blue-100 w-full py-16 flex justify-center">
-      <div className="bg-white p-8 rounded-tl-2xl w-[1500px] h-[500px] flex items-center shadow-md">
+      <div className="bg-white p-8 rounded-tl-2xl w-[1500px] h-[500px] flex items-center shadow-md hover:bg-gray-100 hover:shadow-lg transition-all duration-300">
         <img
           src={image}
           alt={name}

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Typography } from "@material-tailwind/react";
-import { FaLinkedin } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 
 const SubNavbar = ({ color }) => {
   const knowledgeColor = color ? 'bg-primary text-white' : null;
@@ -14,27 +14,36 @@ const SubNavbar = ({ color }) => {
           className="mb-4 ml-7 text-center font-normal text-blue-gray-900 md:mb-0 flex items-center gap-1"
         >
           {/* Email icon and text */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke={socialColorFill}
-            className="w-6 h-6"
-            style={{ marginLeft: '-2.9rem' }}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+          <div className="relative">
+            {/* White border */}
+            <div
+              className="absolute top-0 left-0 w-6 h-6 rounded-full bg-white border-2 border-white"
+              style={{ marginLeft: '-2.9rem', marginTop: '-0.3rem', zIndex: 1 }}
             />
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke={socialColorFill}
+              className="w-6 h-6"
+              style={{ marginLeft: '-2.9rem' }}
+            >
+              {/* No fill for transparent background */}
+              <path fill="none" d="M1.5 6.75l10.5 6.375 10.5-6.375v10.5a2.25 2.25 0 0 1-2.25 2.25h-19.5a2.25 2.25 0 0 1-2.25-2.25z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              />
+            </svg>
+          </div>
           <span className={`text-${socialColorFill}`}> info@epiidosisinvestments.com</span>
           
           {/* Phone icon and text */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill="#339FDE"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke={socialColorFill}
